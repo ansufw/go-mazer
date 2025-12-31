@@ -1,0 +1,29 @@
+{
+  "name": "go-mazer",
+  "version": "1.0.0",
+  "description": "Frontend assets for go-mazer project",
+  "module": "views/assets/js/app.ts",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "bun run build:js && bun run build:css",
+    "build:js": "esbuild views/assets/js/app.js --bundle --outfile views/assets/dist/app.js --minify --sourcemap",
+    "build:css": "sass views/assets/scss/app.scss views/assets/dist/app.css --style compressed --load-path=node_modules",
+    "dev": "bun run build:js --watch & bun run build:css --watch",
+    "clean": "rm -rf views/assets/dist",
+    "prebuild": "bun run clean"
+  },
+  "devDependencies": {
+    "@sweetalert2/theme-dark": "^5.0.15",
+    "@types/bun": "latest",
+    "esbuild": "^0.20.0",
+    "sass": "^1.80.0"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.8",
+    "bootstrap-icons": "^1.13.1",
+    "feather-icons": "^4.29.1",
+    "perfect-scrollbar": "^1.5.6",
+    "sweetalert2": "^11.26.17"
+  }
+}

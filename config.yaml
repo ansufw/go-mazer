@@ -1,0 +1,5 @@
+app:
+    web:
+      name: "dashboard-admin"
+      port: 8080
+      mode: "dev"

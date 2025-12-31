@@ -1,0 +1,13 @@
+@use '../variables';
+
+.breadcrumb {
+    &.breadcrumb-right {
+        justify-content: flex-end;
+        margin-top: variables.$breadcrumb-margin-top;
+    }
+
+    &.breadcrumb-center {
+        justify-content: center;
+        margin-top: variables.$breadcrumb-margin-top;
+    }
+}
