@@ -104,7 +104,6 @@ templ Sidebar(sidebarItems []config.SidebarItem, filename string) {
                         <i class={"bi bi-" + item.Icon}></i>
                         <span>{item.Name}</span>
                     </a>
-                    // todo if sidebarItem.submenu.length > 0 
                     if item.HasSubmenu() {
                         {{submenuActive := false}}
                         for _, sub := range item.Submenu {
@@ -119,23 +118,19 @@ templ Sidebar(sidebarItems []config.SidebarItem, filename string) {
                         }
                        
                     <ul class={"submenu " + submenuClass}>
-                        // todo for sub in sidebarItem.submenu 
                         for _, sub := range item.Submenu {
                             {{ subActiveClass := getActiveClass(sub.URL, sub.Key, filename) }}
                             {{ subHasSubClass := getHasSubClass(sub.HasSubmenu()) }}
                             {{ subItemClass := getClass(subActiveClass, subHasSubClass) }}
 
-                        // todo delme
-                        <p> delme {subItemClass}</p>
+            
                        
                         <li class={"submenu-item " + subItemClass}>
-                            // TODO DELME 
                             <a href={sub.URL} class="submenu-link">{sub.Name}</a>
-                            // todo if sub.submenu.length > 0 
                             if sub.HasSubmenu() {
                             <ul class="submenu submenu-level-2 ">
 
-                                // todo for subsub in sub.submenu 
+                                
                                 for _, subsub := range sub.Submenu {
                                     {{ subsubActiveClass := getActiveClass(subsub.URL, "", filename) }}
                                     {{ subsubItemClass := getClass(subsubActiveClass, "") }}
@@ -143,13 +138,9 @@ templ Sidebar(sidebarItems []config.SidebarItem, filename string) {
                                     <a href={subsub.URL} class="submenu-link">{subsub.Name}</a>
                                 </li>
                                 }
-                                // todo endfor 
-
                             </ul>
-                            // todo endif 
                             }
                         </li>
-                        // todo endfor 
                         }
                     </ul>
                     }

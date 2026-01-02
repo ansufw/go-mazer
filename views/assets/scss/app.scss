@@ -7,7 +7,7 @@
 @use './variables';
 
 // Bootstrap + Icons
-$bootstrap-icons-font-src: url('bootstrap-icons/font/fonts/bootstrap-icons.woff2') format("woff") !default;
+$bootstrap-icons-font-src: url('../static/fonts/bootstrap-icons.woff2') format("woff2"), url('../static/fonts/bootstrap-icons.woff') format("woff") !default;
 @import "bootstrap-icons/font/bootstrap-icons";
 @import "bootstrap/scss/bootstrap";
 
