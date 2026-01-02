@@ -47,41 +47,53 @@ templ Sidebar(sidebarItems []config.SidebarItem) {
         
         for _, item := range sidebarItems {
             <span> debug</span>
-            <p> {item.Name}</p>
-        }
+            <p> {item.Name} {item.IsTitleItem()}</p>
         
-        todo if sidebarItem.isTitle 
-            <li class="sidebar-title"> todo sidebarItem.name</li>
-            todo else 
+        
+        if item.IsTitleItem() {
+            <li class="sidebar-title"> {item.Name}</li>
+            } else {
+                {{ status := ""  }}
+                if item.URL == filename {
+                    {{ status = "active" }}
+                }
             <li
                 class="sidebar-item {{ 'active' if (sidebarItem.url == filename or filename|startsWith(sidebarItem.key)) }} {{'has-sub' if sidebarItem.submenu.length > 0 }}">
                 <a href="{{sidebarItem.url if sidebarItem.url!==undefined else '#'}}" class='sidebar-link'>
                     <i class="bi bi-{{ sidebarItem.icon }}"></i>
-                    <span>todo sidebarItem.name</span>
+                    <span>{item.Name}</span>
                 </a>
-                todo if sidebarItem.submenu.length > 0 
+                // todo if sidebarItem.submenu.length > 0 
+                if item.HasSubmenu() {
                 <ul class="submenu {{ 'active' if (sub.url == filename or filename|startsWith(sidebarItem.key)) }}">
-                    todo for sub in sidebarItem.submenu 
+                    // todo for sub in sidebarItem.submenu 
+                    for _, sub := range item.Submenu {
                     <li class="submenu-item {{ 'active' if sub.url == filename or filename|startsWith(sub.key) }} {{'has-sub' if sub.submenu.length > 0 }}">
-                        <a href="{{ sub.url }}" class="submenu-link">todo sub.name</a>
-                        todo if sub.submenu.length > 0 
+                        <a href={sub.URL} class="submenu-link">{sub.Name}</a>
+                        // todo if sub.submenu.length > 0 
+                        if sub.HasSubmenu() {
                         <ul class="submenu submenu-level-2 ">
 
-                            todo for subsub in sub.submenu 
+                            // todo for subsub in sub.submenu 
+                            for _, subsub := range sub.Submenu {
                             <li class="submenu-item {{ 'active' if subsub.url == filename }}">
-                                <a href="{{ subsub.url }}" class="submenu-link">todo subsub.name</a>
+                                <a href={subsub.URL} class="submenu-link">{subsub.Name}</a>
                             </li>
-                            todo endfor 
+                            }
+                            // todo endfor 
 
                         </ul>
-                        todo endif 
+                        // todo endif 
+                        }
                     </li>
-                    todo endfor 
+                    // todo endfor 
+                    }
                 </ul>
-                todo endif 
+                }
 
             </li>
-            todo endif 
+            }
+            }
             todo endfor 
         </ul>
     </div>
