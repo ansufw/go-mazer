@@ -113,9 +113,9 @@ templ Sidebar(sidebarItems []config.SidebarItem, filename string) {
                             }
                         }
 
-                        {{@submenuClass := ""}}
+                        {{ submenuClass := "submenu-closed" }}
                         if submenuActive {
-                            {{submenuClass = "active"}}
+                            {{submenuClass = "submenu-open"}}
                         }
                        
                     <ul class={"submenu " + submenuClass}>
@@ -137,8 +137,8 @@ templ Sidebar(sidebarItems []config.SidebarItem, filename string) {
 
                                 // todo for subsub in sub.submenu 
                                 for _, subsub := range sub.Submenu {
-                                    {{ @subsubActiveClass := getActiveClass(subsub.URL, "", filename) }}
-                                    {{ @subsubItemClass := getClass(subsubActiveClass, "") }}
+                                    {{ subsubActiveClass := getActiveClass(subsub.URL, "", filename) }}
+                                    {{ subsubItemClass := getClass(subsubActiveClass, "") }}
                                 <li class={"submenu-item " + subsubItemClass}>
                                     <a href={subsub.URL} class="submenu-link">{subsub.Name}</a>
                                 </li>

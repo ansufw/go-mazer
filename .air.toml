@@ -9,8 +9,9 @@ args_bin = []
 bin = "./tmp/main"
 pre_cmd = [
     "templ generate",
+    "esbuild views/assets/js/app.js --bundle --outfile=views/assets/dist/app.js --minify --sourcemap",
     "sass --style compressed --load-path=node_modules --source-map --embed-source-map views/assets/scss/app.scss:views/assets/css/app.css",
-    "sass --style compressed --load-path=node_modules --source-map --embed-source-map views/assets/scss/app-dark.scss:views/assets/css/app-dark.css",
+    "sass --style compressed --load-path=node_modules --source-map --embed-source-map views/assets/scss/themes/dark/app-dark.scss:views/assets/css/app-dark.css",
 ]
 cmd = "go build -o ./tmp/main cmd/*.go"
 delay = 1000
