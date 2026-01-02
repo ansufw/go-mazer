@@ -78,7 +78,7 @@ func Base(title, web_title string, sidebarItems []config.SidebarItem, filename s
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "</div></div><script src=\"assets/static/js/components/dark.js\"></script><script src=\"assets/dist/app.js\" type=\"module\"></script></body></html>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "</div></div><script src=\"assets/static/js/components/dark.js\"></script><script src=\"assets/dist/app.js\"></script></body></html>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

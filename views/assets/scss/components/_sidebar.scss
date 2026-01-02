@@ -1,4 +1,4 @@
-@use '../variables';
+@import '../variables';
 
 @mixin sidebar-active {
     .sidebar-wrapper {
@@ -46,7 +46,7 @@
     top: 0;
     z-index: 10;
     overflow-y: auto;
-    background-color: variables.$sidebar-bg;
+    background-color: $sidebar-bg;
     bottom: 0;
     transition: left .7s cubic-bezier(0.22, 1, 0.36, 1);
 
@@ -79,7 +79,7 @@
             font-size: 1rem;
             list-style: none;
             font-weight: 600;
-            color: variables.$sidebar-link-color;
+            color: $sidebar-link-color;
         }
 
         .sidebar-link {
@@ -91,7 +91,7 @@
             border-radius: .5rem;
             transition: all .5s;
             text-decoration: none;
-            color: variables.$sidebar-link-color;
+            color: $sidebar-link-color;
 
             svg,
             i {
@@ -107,7 +107,7 @@
             }
 
             &:hover {
-                background-color: variables.$sidebar-link-hover-bg;
+                background-color: $sidebar-link-hover-bg;
             }
         }
 
@@ -124,7 +124,7 @@
                 }
 
                 >.sidebar-link {
-                    background-color: variables.$primary;
+                    background-color: $primary;
 
                     span {
                         color: #fff;
@@ -176,7 +176,7 @@
                 a {
                     padding: .7rem 2rem;
                     display: block;
-                    color: variables.$sidebar-submenu-color;
+                    color: $sidebar-submenu-color;
                     font-size: .85rem;
                     font-weight: 600;
                     letter-spacing: .5px;
@@ -184,7 +184,7 @@
 
                     &:hover {
                         margin-left: .3rem;
-                        color: variables.$sidebar-submenu-hover-color;
+                        color: $sidebar-submenu-hover-color;
                     }
                 }
             }

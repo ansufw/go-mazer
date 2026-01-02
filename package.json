@@ -8,7 +8,7 @@
   "scripts": {
     "build": "bun run build:js && bun run build:css",
     "build:js": "esbuild views/assets/js/app.js --bundle --outfile=views/assets/dist/app.js --minify --sourcemap",
-    "build:css": "sass views/assets/scss/app.scss views/assets/dist/app.css --style compressed --load-path=node_modules",
+    "build:css": "sass views/assets/scss/app.scss views/assets/css/app.css --style compressed --load-path=node_modules && sass views/assets/scss/themes/dark/app-dark.scss views/assets/css/app-dark.css --style compressed --load-path=node_modules",
     "dev": "bun run build:js --watch & bun run build:css --watch",
     "clean": "rm -rf views/assets/dist",
     "prebuild": "bun run clean"
