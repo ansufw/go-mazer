@@ -3,6 +3,10 @@
 import bootstrapBundle from "bootstrap/dist/js/bootstrap.bundle"
 window.bootstrap = bootstrapBundle
 
+import PerfectScrollbar from "perfect-scrollbar"
+window.PerfectScrollbar = PerfectScrollbar
+
+
 // We could import PerfectScrollbar directly in the sidebar module
 import "./../static/js/components/sidebar"
 

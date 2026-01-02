@@ -1,9 +1,7 @@
 package config
 
 import (
-	"encoding/json"
 	"fmt"
-	"os"
 	"sync"
 
 	"github.com/spf13/viper"
@@ -43,22 +41,13 @@ var (
 	cacheOnce    sync.Once
 )
 
-// LoadSidebar loads sidebar configuration from JSON file with caching
+// LoadSidebar loads sidebar configuration from embedded data with caching
 func LoadSidebar() ([]SidebarItem, error) {
-	var err error
 	cacheOnce.Do(func() {
-		data, readErr := os.ReadFile("config/sidebar.json")
-		if readErr != nil {
-			err = fmt.Errorf("failed to read sidebar config: %w", readErr)
-			return
-		}
-
-		if unmarshalErr := json.Unmarshal(data, &sidebarCache); unmarshalErr != nil {
-			err = fmt.Errorf("failed to parse sidebar config: %w", unmarshalErr)
-		}
+		sidebarCache = SidebarData
 	})
 
-	return sidebarCache, err
+	return sidebarCache, nil
 }
 
 // ReloadSidebar forces a reload of the sidebar configuration

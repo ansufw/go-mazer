@@ -8,13 +8,12 @@
 @use 'sass:math';
 @use "sass:color";
 
+// @use "bootstrap" as *;
+// @use "bootstrap/scss/functions" as *;
 @import "bootstrap/scss/functions";
 
 $dark-mode: false !default;
 
-
-// Mazer Variables
-@import "bootstrap/scss/functions";
 
 $theme-colors-light: (
   'primary': #ebf3ff,
