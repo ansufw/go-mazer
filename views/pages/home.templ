@@ -5,9 +5,9 @@ import (
 	"github.com/ansufw/go-mazer/apps/web/config"
 )
 
-templ Home(sidebarItems []config.SidebarItem) {
+templ Home(sidebarItems []config.SidebarItem, filename string) {
 
-    @layouts.Base("Home", "Go Mazer", sidebarItems) {
+    @layouts.Base("Home", "Go Mazer", sidebarItems, filename) {
         "test home"
     }
 

@@ -15,8 +15,10 @@ func Route(app *fiber.App) {
 			return c.Status(500).SendString("Failed to load sidebar")
 		}
 
+		filename := c.Path()
+
 		c.Set("Content-Type", "text/html")
-		return pages.Home(sidebar).Render(c.Context(), c.Response().BodyWriter())
+		return pages.Home(sidebar, filename).Render(c.Context(), c.Response().BodyWriter())
 	}).Name("home")
 
 }

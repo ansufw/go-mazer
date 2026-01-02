@@ -3,7 +3,7 @@ package layouts
 import "github.com/ansufw/go-mazer/views/partials"
 import "github.com/ansufw/go-mazer/apps/web/config"
 
-templ Base(title, web_title string, sidebarItems []config.SidebarItem) {
+templ Base(title, web_title string, sidebarItems []config.SidebarItem, filename string) {
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,7 +21,7 @@ templ Base(title, web_title string, sidebarItems []config.SidebarItem) {
     <script src="assets/static/js/initTheme.js"></script>
     <div id="app">
         <div id="sidebar">
-        @Sidebar(sidebarItems)
+        @Sidebar(sidebarItems, filename)
         </div>
         <div id="main">
             <header class="mb-3">

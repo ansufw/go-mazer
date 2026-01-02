@@ -1,8 +1,47 @@
 package layouts
 
-import "github.com/ansufw/go-mazer/apps/web/config"
+import (
+    "strings"
+    "github.com/ansufw/go-mazer/apps/web/config"
+)
 
-templ Sidebar(sidebarItems []config.SidebarItem) {
+// Helper functions to be used in templates
+func isActive(itemURL, currentFilename string) bool {
+    return itemURL == currentFilename
+}
+
+func startsWithKey(filename, key string) bool {
+    return strings.HasPrefix(filename, key)
+}
+
+func getActiveClass(itemURL, itemKey, currentFilename string) string {
+    var classes []string
+    if isActive(itemURL, currentFilename) || startsWithKey(currentFilename, itemKey) {
+        classes = append(classes, "active")
+    }
+    return strings.Join(classes, " ")
+}
+
+func getHasSubClass(hasSubmenu bool) string {
+    if hasSubmenu {
+        return "has-sub"
+    }
+    return ""
+}
+
+func getClass(activeClass, hasSubClass string) string {
+    var classes []string
+    if activeClass != "" {
+        classes = append(classes, activeClass)
+    }
+    if hasSubClass != "" {
+        classes = append(classes, hasSubClass)
+    }
+    return strings.Join(classes, " ")
+}
+
+
+templ Sidebar(sidebarItems []config.SidebarItem, filename string) {
 <div class="sidebar-wrapper active">
     <div class="sidebar-header position-relative">
         <div class="d-flex justify-content-between align-items-center">
@@ -46,55 +85,78 @@ templ Sidebar(sidebarItems []config.SidebarItem) {
         <ul class="menu">
         
         for _, item := range sidebarItems {
-            <span> debug</span>
-            <p> {item.Name} {item.IsTitleItem()}</p>
-        
-        
-        if item.IsTitleItem() {
-            <li class="sidebar-title"> {item.Name}</li>
+                
+            if item.IsTitleItem() {
+                <li class="sidebar-title"> {item.Name}</li>
             } else {
-                {{ status := ""  }}
-                if item.URL == filename {
-                    {{ status = "active" }}
-                }
-            <li
-                class="sidebar-item {{ 'active' if (sidebarItem.url == filename or filename|startsWith(sidebarItem.key)) }} {{'has-sub' if sidebarItem.submenu.length > 0 }}">
-                <a href="{{sidebarItem.url if sidebarItem.url!==undefined else '#'}}" class='sidebar-link'>
-                    <i class="bi bi-{{ sidebarItem.icon }}"></i>
-                    <span>{item.Name}</span>
-                </a>
-                // todo if sidebarItem.submenu.length > 0 
-                if item.HasSubmenu() {
-                <ul class="submenu {{ 'active' if (sub.url == filename or filename|startsWith(sidebarItem.key)) }}">
-                    // todo for sub in sidebarItem.submenu 
-                    for _, sub := range item.Submenu {
-                    <li class="submenu-item {{ 'active' if sub.url == filename or filename|startsWith(sub.key) }} {{'has-sub' if sub.submenu.length > 0 }}">
-                        <a href={sub.URL} class="submenu-link">{sub.Name}</a>
-                        // todo if sub.submenu.length > 0 
-                        if sub.HasSubmenu() {
-                        <ul class="submenu submenu-level-2 ">
+                    {{activeClass := getActiveClass(item.URL, item.Key, filename)}}
+                    {{hasSubClass := getHasSubClass(item.HasSubmenu())}}
+                    {{itemClass := getClass(activeClass, hasSubClass)}}
 
-                            // todo for subsub in sub.submenu 
-                            for _, subsub := range sub.Submenu {
-                            <li class="submenu-item {{ 'active' if subsub.url == filename }}">
-                                <a href={subsub.URL} class="submenu-link">{subsub.Name}</a>
-                            </li>
-                            }
-                            // todo endfor 
-
-                        </ul>
-                        // todo endif 
-                        }
-                    </li>
-                    // todo endfor 
+                    // Build href (use # if URL is empty)
+                    {{href := item.URL}}
+                    if href == "" {
+                        {{ href = "#" }}
                     }
-                </ul>
-                }
+                <li
+                    class={"sidebar-item " + itemClass}>
+                    <a href={href} class='sidebar-link'>
+                        <i class={"bi bi-" + item.Icon}></i>
+                        <span>{item.Name}</span>
+                    </a>
+                    // todo if sidebarItem.submenu.length > 0 
+                    if item.HasSubmenu() {
+                        {{submenuActive := false}}
+                        for _, sub := range item.Submenu {
+                            if getActiveClass(sub.URL, sub.Key, filename) != "" {
+                                {{submenuActive = true}}
+                            }
+                        }
 
-            </li>
+                        {{@submenuClass := ""}}
+                        if submenuActive {
+                            {{submenuClass = "active"}}
+                        }
+                       
+                    <ul class={"submenu " + submenuClass}>
+                        // todo for sub in sidebarItem.submenu 
+                        for _, sub := range item.Submenu {
+                            {{ subActiveClass := getActiveClass(sub.URL, sub.Key, filename) }}
+                            {{ subHasSubClass := getHasSubClass(sub.HasSubmenu()) }}
+                            {{ subItemClass := getClass(subActiveClass, subHasSubClass) }}
+
+                        // todo delme
+                        <p> delme {subItemClass}</p>
+                       
+                        <li class={"submenu-item " + subItemClass}>
+                            // TODO DELME 
+                            <a href={sub.URL} class="submenu-link">{sub.Name}</a>
+                            // todo if sub.submenu.length > 0 
+                            if sub.HasSubmenu() {
+                            <ul class="submenu submenu-level-2 ">
+
+                                // todo for subsub in sub.submenu 
+                                for _, subsub := range sub.Submenu {
+                                    {{ @subsubActiveClass := getActiveClass(subsub.URL, "", filename) }}
+                                    {{ @subsubItemClass := getClass(subsubActiveClass, "") }}
+                                <li class={"submenu-item " + subsubItemClass}>
+                                    <a href={subsub.URL} class="submenu-link">{subsub.Name}</a>
+                                </li>
+                                }
+                                // todo endfor 
+
+                            </ul>
+                            // todo endif 
+                            }
+                        </li>
+                        // todo endfor 
+                        }
+                    </ul>
+                    }
+
+                </li>
             }
-            }
-            todo endfor 
+        }
         </ul>
     </div>
 </div>
