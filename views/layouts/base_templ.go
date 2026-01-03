@@ -11,7 +11,12 @@ import templruntime "github.com/a-h/templ/runtime"
 import "github.com/ansufw/go-mazer/views/partials"
 import "github.com/ansufw/go-mazer/apps/web/config"
 
-func Base(title, web_title string, sidebarItems []config.SidebarItem, filename string) templ.Component {
+func Base(
+	title, web_title string,
+	sidebarItems []config.SidebarItem,
+	filename string,
+	jsComponent templ.Component,
+	cssComponent templ.Component) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
@@ -39,7 +44,7 @@ func Base(title, web_title string, sidebarItems []config.SidebarItem, filename s
 		var templ_7745c5c3_Var2 string
 		templ_7745c5c3_Var2, templ_7745c5c3_Err = templ.JoinStringErrs(title)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `views/layouts/base.templ`, Line: 13, Col: 18}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `views/layouts/base.templ`, Line: 18, Col: 18}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var2))
 		if templ_7745c5c3_Err != nil {
@@ -52,13 +57,21 @@ func Base(title, web_title string, sidebarItems []config.SidebarItem, filename s
 		var templ_7745c5c3_Var3 string
 		templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(web_title)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `views/layouts/base.templ`, Line: 13, Col: 34}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `views/layouts/base.templ`, Line: 18, Col: 34}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "</title><link rel=\"stylesheet\" href=\"assets/css/app.css\"><link rel=\"stylesheet\" href=\"assets/css/app-dark.css\"><link rel=\"shortcut icon\" href=\"assets/static/images/logo/favicon.svg\" type=\"image/x-icon\"><link rel=\"shortcut icon\" href=\"assets/static/images/logo/favicon.png\" type=\"image/png\"></head><body><script src=\"assets/static/js/initTheme.js\"></script><div id=\"app\"><div id=\"sidebar\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "</title><link rel=\"stylesheet\" href=\"assets/css/app.css\"><link rel=\"stylesheet\" href=\"assets/css/app-dark.css\"><link rel=\"shortcut icon\" href=\"assets/static/images/logo/favicon.svg\" type=\"image/x-icon\"><link rel=\"shortcut icon\" href=\"assets/static/images/logo/favicon.png\" type=\"image/png\">")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = cssComponent.Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "</head><body><script src=\"assets/static/js/initTheme.js\"></script><div id=\"app\"><div id=\"sidebar\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -66,7 +79,7 @@ func Base(title, web_title string, sidebarItems []config.SidebarItem, filename s
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "</div><div id=\"main\"><header class=\"mb-3\"><a href=\"#\" class=\"burger-btn d-block d-xl-none\"><i class=\"bi bi-justify fs-3\"></i></a></header>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "</div><div id=\"main\"><header class=\"mb-3\"><a href=\"#\" class=\"burger-btn d-block d-xl-none\"><i class=\"bi bi-justify fs-3\"></i></a></header>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -78,7 +91,15 @@ func Base(title, web_title string, sidebarItems []config.SidebarItem, filename s
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "</div></div><script src=\"assets/static/js/components/dark.js\"></script><script src=\"assets/dist/app.js\"></script></body></html>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "</div></div><script src=\"assets/static/js/components/dark.js\"></script><script src=\"assets/dist/app.js\"></script>")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = jsComponent.Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "</body></html>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

@@ -11,7 +11,8 @@
     "build:css": "sass views/assets/scss/app.scss views/assets/css/app.css --style compressed --load-path=node_modules && sass views/assets/scss/themes/dark/app-dark.scss views/assets/css/app-dark.css --style compressed --load-path=node_modules",
     "dev": "bun run build:js --watch & bun run build:css --watch",
     "clean": "rm -rf views/assets/dist",
-    "prebuild": "bun run clean"
+    "copy:assets": "node scripts/copy-assets.js",
+    "prebuild": "bun run clean && bun run copy:assets"
   },
   "devDependencies": {
     "@sweetalert2/theme-dark": "^5.0.15",
@@ -20,6 +21,7 @@
     "sass": "^1.80.0"
   },
   "dependencies": {
+    "apexcharts": "^5.3.6",
     "bootstrap": "^5.3.8",
     "bootstrap-icons": "^1.13.1",
     "feather-icons": "^4.29.1",

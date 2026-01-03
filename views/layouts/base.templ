@@ -3,7 +3,12 @@ package layouts
 import "github.com/ansufw/go-mazer/views/partials"
 import "github.com/ansufw/go-mazer/apps/web/config"
 
-templ Base(title, web_title string, sidebarItems []config.SidebarItem, filename string) {
+templ Base(
+    title, web_title string, 
+    sidebarItems []config.SidebarItem, 
+    filename string, 
+    jsComponent templ.Component, 
+    cssComponent templ.Component) {
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,6 +20,7 @@ templ Base(title, web_title string, sidebarItems []config.SidebarItem, filename 
     <link rel="stylesheet" href="assets/css/app-dark.css">
     <link rel="shortcut icon" href="assets/static/images/logo/favicon.svg" type="image/x-icon">
     <link rel="shortcut icon" href="assets/static/images/logo/favicon.png" type="image/png">
+    @cssComponent
 </head>
 
 <body>
@@ -34,8 +40,8 @@ templ Base(title, web_title string, sidebarItems []config.SidebarItem, filename 
         </div>
     </div>
     <script src="assets/static/js/components/dark.js"></script>
-
     <script src="assets/dist/app.js"></script>
+    @jsComponent
 
 </body>
 
