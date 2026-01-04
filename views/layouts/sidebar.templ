@@ -11,6 +11,9 @@ func isActive(itemURL, currentFilename string) bool {
 }
 
 func startsWithKey(filename, key string) bool {
+    if key == "" {
+        return false
+    }
     return strings.HasPrefix(filename, key)
 }
 

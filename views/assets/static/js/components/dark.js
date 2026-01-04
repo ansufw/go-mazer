@@ -1,4 +1,3 @@
-console.log("debug >>>>>> dark.js loaded delete meeee delme")
 const THEME_KEY = "theme"
 
 function toggleDarkTheme() {

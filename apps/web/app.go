@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 
+	"github.com/ansufw/go-mazer/apps/web/handler"
 	"github.com/ansufw/go-mazer/apps/web/router"
 	"github.com/gofiber/fiber/v2"
 	"github.com/spf13/viper"
@@ -62,7 +63,8 @@ func New(serviceName string) (*App, error) {
 
 	app := fiber.New()
 
-	router.Route(app)
+	h := &handler.Handler{}
+	router.Route(app, h)
 
 	return &App{app: app, config: config}, nil
 }

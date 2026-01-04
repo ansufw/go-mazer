@@ -19,6 +19,9 @@ func isActive(itemURL, currentFilename string) bool {
 }
 
 func startsWithKey(filename, key string) bool {
+	if key == "" {
+		return false
+	}
 	return strings.HasPrefix(filename, key)
 }
 
@@ -82,7 +85,7 @@ func Sidebar(sidebarItems []config.SidebarItem, filename string) templ.Component
 				var templ_7745c5c3_Var2 string
 				templ_7745c5c3_Var2, templ_7745c5c3_Err = templ.JoinStringErrs(item.Name)
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `views/layouts/sidebar.templ`, Line: 90, Col: 53}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `views/layouts/sidebar.templ`, Line: 93, Col: 53}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var2))
 				if templ_7745c5c3_Err != nil {
@@ -133,7 +136,7 @@ func Sidebar(sidebarItems []config.SidebarItem, filename string) templ.Component
 				var templ_7745c5c3_Var5 templ.SafeURL
 				templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinURLErrs(href)
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `views/layouts/sidebar.templ`, Line: 103, Col: 33}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `views/layouts/sidebar.templ`, Line: 106, Col: 33}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
 				if templ_7745c5c3_Err != nil {
@@ -168,7 +171,7 @@ func Sidebar(sidebarItems []config.SidebarItem, filename string) templ.Component
 				var templ_7745c5c3_Var8 string
 				templ_7745c5c3_Var8, templ_7745c5c3_Err = templ.JoinStringErrs(item.Name)
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `views/layouts/sidebar.templ`, Line: 105, Col: 40}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `views/layouts/sidebar.templ`, Line: 108, Col: 40}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var8))
 				if templ_7745c5c3_Err != nil {
@@ -248,7 +251,7 @@ func Sidebar(sidebarItems []config.SidebarItem, filename string) templ.Component
 						var templ_7745c5c3_Var13 templ.SafeURL
 						templ_7745c5c3_Var13, templ_7745c5c3_Err = templ.JoinURLErrs(sub.URL)
 						if templ_7745c5c3_Err != nil {
-							return templ.Error{Err: templ_7745c5c3_Err, FileName: `views/layouts/sidebar.templ`, Line: 129, Col: 44}
+							return templ.Error{Err: templ_7745c5c3_Err, FileName: `views/layouts/sidebar.templ`, Line: 132, Col: 44}
 						}
 						_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var13))
 						if templ_7745c5c3_Err != nil {
@@ -261,7 +264,7 @@ func Sidebar(sidebarItems []config.SidebarItem, filename string) templ.Component
 						var templ_7745c5c3_Var14 string
 						templ_7745c5c3_Var14, templ_7745c5c3_Err = templ.JoinStringErrs(sub.Name)
 						if templ_7745c5c3_Err != nil {
-							return templ.Error{Err: templ_7745c5c3_Err, FileName: `views/layouts/sidebar.templ`, Line: 129, Col: 76}
+							return templ.Error{Err: templ_7745c5c3_Err, FileName: `views/layouts/sidebar.templ`, Line: 132, Col: 76}
 						}
 						_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var14))
 						if templ_7745c5c3_Err != nil {
@@ -304,7 +307,7 @@ func Sidebar(sidebarItems []config.SidebarItem, filename string) templ.Component
 								var templ_7745c5c3_Var17 templ.SafeURL
 								templ_7745c5c3_Var17, templ_7745c5c3_Err = templ.JoinURLErrs(subsub.URL)
 								if templ_7745c5c3_Err != nil {
-									return templ.Error{Err: templ_7745c5c3_Err, FileName: `views/layouts/sidebar.templ`, Line: 138, Col: 55}
+									return templ.Error{Err: templ_7745c5c3_Err, FileName: `views/layouts/sidebar.templ`, Line: 141, Col: 55}
 								}
 								_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var17))
 								if templ_7745c5c3_Err != nil {
@@ -317,7 +320,7 @@ func Sidebar(sidebarItems []config.SidebarItem, filename string) templ.Component
 								var templ_7745c5c3_Var18 string
 								templ_7745c5c3_Var18, templ_7745c5c3_Err = templ.JoinStringErrs(subsub.Name)
 								if templ_7745c5c3_Err != nil {
-									return templ.Error{Err: templ_7745c5c3_Err, FileName: `views/layouts/sidebar.templ`, Line: 138, Col: 90}
+									return templ.Error{Err: templ_7745c5c3_Err, FileName: `views/layouts/sidebar.templ`, Line: 141, Col: 90}
 								}
 								_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var18))
 								if templ_7745c5c3_Err != nil {

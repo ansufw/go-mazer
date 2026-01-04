@@ -10,5 +10,4 @@ window.PerfectScrollbar = PerfectScrollbar
 // We could import PerfectScrollbar directly in the sidebar module
 import "./../static/js/components/sidebar"
 
-console.log("debug >>>>>> mazer.js loaded delete meeee delme")
 

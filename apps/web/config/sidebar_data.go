@@ -8,7 +8,7 @@ var SidebarData = []SidebarItem{
 	},
 	{
 		Name: "Dashboard",
-		URL:  "index.html",
+		URL:  "index",
 		Icon: "grid-fill",
 	},
 	{
@@ -16,7 +16,7 @@ var SidebarData = []SidebarItem{
 		Key:  "component",
 		Icon: "stack",
 		Submenu: []SidebarItem{
-			{Name: "Accordion", URL: "component-accordion.html"},
+			{Name: "Accordion", URL: "component-accordion"},
 			{Name: "Alert", URL: "component-alert.html"},
 			{Name: "Badge", URL: "component-badge.html"},
 			{Name: "Breadcrumb", URL: "component-breadcrumb.html"},
@@ -41,7 +41,7 @@ var SidebarData = []SidebarItem{
 		Key:  "extra-component",
 		Icon: "collection-fill",
 		Submenu: []SidebarItem{
-			{Name: "Avatar", URL: "extra-component-avatar.html"},
+			{Name: "Avatar", URL: "extra-component-avatar"},
 			{Name: "Comment", URL: "extra-component-comment.html"},
 			{Name: "Divider", URL: "extra-component-divider.html"},
 			{Name: "Date Picker", URL: "extra-component-date-picker.html"},
@@ -58,7 +58,7 @@ var SidebarData = []SidebarItem{
 		Icon: "grid-1x2-fill",
 		Submenu: []SidebarItem{
 			{Name: "Default Layout", URL: "layout-default.html"},
-			{Name: "1 Column", URL: "layout-vertical-1-column.html"},
+			{Name: "1 Column", URL: "single-vertical"},
 			{Name: "Vertical Navbar", URL: "layout-vertical-navbar.html"},
 			{Name: "RTL Layout", URL: "layout-rtl.html"},
 			{Name: "Horizontal Menu", URL: "layout-horizontal.html"},

@@ -7,8 +7,8 @@ templ Base(
     title, web_title string, 
     sidebarItems []config.SidebarItem, 
     filename string, 
-    jsComponent templ.Component, 
-    cssComponent templ.Component) {
+    blockJs templ.Component, 
+    blockCss templ.Component) {
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,7 +20,9 @@ templ Base(
     <link rel="stylesheet" href="assets/css/app-dark.css">
     <link rel="shortcut icon" href="assets/static/images/logo/favicon.svg" type="image/x-icon">
     <link rel="shortcut icon" href="assets/static/images/logo/favicon.png" type="image/png">
-    @cssComponent
+    if blockCss != nil {
+        @blockCss
+    }
 </head>
 
 <body>
@@ -41,7 +43,9 @@ templ Base(
     </div>
     <script src="assets/static/js/components/dark.js"></script>
     <script src="assets/dist/app.js"></script>
-    @jsComponent
+    if blockJs != nil {
+        @blockJs
+    }
 
 </body>
 

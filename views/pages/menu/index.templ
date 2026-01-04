@@ -7,7 +7,7 @@ import (
 
 templ Index(sidebarItems []config.SidebarItem, filename string) {
 
-    @layouts.Base("Home", "Go Mazer", sidebarItems, filename, blockScript()) {
+    @layouts.Base("Home", "Go Mazer", sidebarItems, filename, blockScript(), blockStyle()) {
         @blockContent()
     }
 
@@ -329,7 +329,6 @@ templ blockScript() {
     <script src="assets/static/js/pages/dashboard.js"></script>
 }
 
-css blockStyle() {
-    <link rel="stylesheet" href="/assets/scss/iconly.scss">
+templ blockStyle() {
     
 }

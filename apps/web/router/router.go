@@ -1,37 +1,19 @@
 package router
 
 import (
-	"github.com/ansufw/go-mazer/apps/web/config"
-	"github.com/ansufw/go-mazer/views/pages"
-	"github.com/ansufw/go-mazer/views/pages/menu"
+	"github.com/ansufw/go-mazer/apps/web/handler"
 	"github.com/gofiber/fiber/v2"
 )
 
-func Route(app *fiber.App) {
+func Route(app *fiber.App, h *handler.Handler) {
 	app.Static("assets", "./views/assets")
 
-	app.Get("/", func(c *fiber.Ctx) error {
-		sidebar, err := config.LoadSidebar()
-		if err != nil {
-			return c.Status(500).SendString("Failed to load sidebar")
-		}
+	app.Get("/", h.Home).Name("home")
+	app.Get("/index", h.Index).Name("index")
+	app.Get("/component-accordion", h.Accordion).Name("accordion")
 
-		filename := c.Path()
+	app.Get("/extra-component-avatar", h.Avatar).Name("avatar")
 
-		c.Set("Content-Type", "text/html")
-		return pages.Home(sidebar, filename).Render(c.Context(), c.Response().BodyWriter())
-	}).Name("home")
-
-	app.Get("/index", func(c *fiber.Ctx) error {
-		sidebar, err := config.LoadSidebar()
-		if err != nil {
-			return c.Status(500).SendString("Failed to load sidebar")
-		}
-
-		filename := c.Path()
-
-		c.Set("Content-Type", "text/html")
-		return menu.Index(sidebar, filename).Render(c.Context(), c.Response().BodyWriter())
-	})
+	app.Get("/single-vertical", h.SingleVertical).Name("single-vertical")
 
 }
