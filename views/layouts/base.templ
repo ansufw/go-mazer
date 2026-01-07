@@ -1,54 +1,19 @@
 package layouts
 
 import "github.com/ansufw/go-mazer/views/partials"
-import "github.com/ansufw/go-mazer/apps/web/config"
 
-templ Base(
-    title, web_title string, 
-    sidebarItems []config.SidebarItem, 
-    filename string, 
-    blockJs templ.Component, 
-    blockCss templ.Component) {
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{ title } - { web_title }</title>
-    <link rel="stylesheet" href="assets/css/app.css">
-    <link rel="stylesheet" href="assets/css/app-dark.css">
-    <link rel="shortcut icon" href="assets/static/images/logo/favicon.svg" type="image/x-icon">
-    <link rel="shortcut icon" href="assets/static/images/logo/favicon.png" type="image/png">
-    if blockCss != nil {
-        @blockCss
-    }
-</head>
+templ Base(title string) {
+    <!DOCTYPE html>
+    <html lang="en">
+    
+     @partials.Head(title)
 
-<body>
-    <script src="assets/static/js/initTheme.js"></script>
-    <div id="app">
-        <div id="sidebar">
-        @Sidebar(sidebarItems, filename)
-        </div>
-        <div id="main">
-            <header class="mb-3">
-                <a href="#" class="burger-btn d-block d-xl-none">
-                    <i class="bi bi-justify fs-3"></i>
-                </a>
-            </header>
-            { children... }
-            @partials.Footer()
-        </div>
-    </div>
-    <script src="assets/static/js/components/dark.js"></script>
-    <script src="assets/dist/app.js"></script>
-    if blockJs != nil {
-        @blockJs
-    }
+        <body>
+            <script src="assets/static/js/initTheme.js"></script>
+            {children...}
+        </body>
 
-</body>
-
-</html>
-
+        
+    </html>
 }

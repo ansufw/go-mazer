@@ -5,6 +5,7 @@ go 1.25.4
 require (
 	github.com/a-h/templ v0.3.960
 	github.com/gofiber/fiber/v2 v2.52.10
+	github.com/spf13/viper v1.21.0
 )
 
 require (
@@ -23,7 +24,6 @@ require (
 	github.com/spf13/afero v1.15.0 // indirect
 	github.com/spf13/cast v1.10.0 // indirect
 	github.com/spf13/pflag v1.0.10 // indirect
-	github.com/spf13/viper v1.21.0 // indirect
 	github.com/subosito/gotenv v1.6.0 // indirect
 	github.com/valyala/bytebufferpool v1.0.0 // indirect
 	github.com/valyala/fasthttp v1.51.0 // indirect

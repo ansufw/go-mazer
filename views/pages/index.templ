@@ -1,15 +1,16 @@
-package menu
+package pages
 
 import (
     "github.com/ansufw/go-mazer/views/layouts"
-	"github.com/ansufw/go-mazer/apps/web/config"
 )
 
-templ Index(sidebarItems []config.SidebarItem, filename string) {
+templ Index(filename string) {
 
-    @layouts.Base("Home", "Go Mazer", sidebarItems, filename, blockScript(), blockStyle()) {
-        @blockContent()
-    }
+        @layouts.Base("Index") {
+            @layouts.SidebarLayout("Home", "Go Mazer", filename, blockScript(), blockStyle()) {
+                @blockContent()
+            }
+        }
 
 }
 

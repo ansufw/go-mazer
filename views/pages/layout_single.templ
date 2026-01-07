@@ -1,21 +1,20 @@
-package layouts
+package pages
 
 import (
     "github.com/ansufw/go-mazer/views/layouts"
-	"github.com/ansufw/go-mazer/apps/web/config"
 )
 
-templ SingleVertical(sidebarItems []config.SidebarItem, filename string) {
+templ SingleVertical(filename string) {
 
-    @layouts.SingleVertical("Home", "Go Mazer", sidebarItems, filename, nil, nil) {
-        @blockContent()
+    @layouts.Base("Layout Single") {
+        @layouts.SingleVertical("Layout Single", "Go Mazer", filename, nil, nil) {
+            @contentSingle()
+        }
     }
 
 }
 
-
-
-templ blockContent() {
+templ contentSingle() {
     <div class="container">
         <div class="card mt-5">
             <div class="card-header">

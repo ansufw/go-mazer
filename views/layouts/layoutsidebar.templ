@@ -1,0 +1,35 @@
+package layouts
+
+import "github.com/ansufw/go-mazer/views/partials"
+import "github.com/ansufw/go-mazer/apps/web/data"
+
+templ SidebarLayout(
+    title, web_title string, 
+    filename string, 
+    blockJs templ.Component, 
+    blockCss templ.Component) {
+        
+  
+    <div id="app">
+        <div id="sidebar">
+        @Sidebar(data.GetSidebar(ctx, "template-data"), filename)
+        </div>
+        <div id="main">
+            <header class="mb-3">
+                <a href="#" class="burger-btn d-block d-xl-none">
+                    <i class="bi bi-justify fs-3"></i>
+                </a>
+            </header>
+            { children... }
+            @partials.Footer()
+        </div>
+    </div>
+    <script src="assets/static/js/components/dark.js"></script>
+    <script src="assets/dist/app.js"></script>
+    if blockJs != nil {
+        @blockJs
+    }
+
+ 
+
+}

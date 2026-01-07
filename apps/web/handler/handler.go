@@ -3,12 +3,8 @@ package handler
 import (
 	"strings"
 
-	"github.com/ansufw/go-mazer/apps/web/config"
-	"github.com/ansufw/go-mazer/views/pages/menu"
-	"github.com/ansufw/go-mazer/views/pages/menu/components"
-	"github.com/ansufw/go-mazer/views/pages/menu/extra"
-	"github.com/ansufw/go-mazer/views/pages/menu/layouts"
-
+	"github.com/a-h/templ"
+	"github.com/ansufw/go-mazer/views/pages"
 	"github.com/gofiber/fiber/v2"
 )
 
@@ -20,46 +16,20 @@ func (h *Handler) Home(c *fiber.Ctx) error {
 	return c.RedirectToRoute("index", fiber.Map{}, 302)
 }
 
-func (h *Handler) Index(c *fiber.Ctx) error {
-	sidebar, err := config.LoadSidebar()
-	if err != nil {
-		return c.Status(500).SendString("Failed to load sidebar")
-	}
-
-	filename := strings.Trim(c.Path(), "/")
-
+func (h *Handler) render(c *fiber.Ctx, component templ.Component) error {
 	c.Set("Content-Type", "text/html")
-	return menu.Index(sidebar, filename).Render(c.Context(), c.Response().BodyWriter())
+	return component.Render(c.Context(), c.Response().BodyWriter())
 }
 
-func (h *Handler) Accordion(c *fiber.Ctx) error {
-	sidebar, err := config.LoadSidebar()
-	if err != nil {
-		return c.Status(500).SendString("Failed to load sidebar")
+func (h *Handler) RenderPage(f func(string) templ.Component) func(*fiber.Ctx) error {
+	return func(c *fiber.Ctx) error {
+		c.Set("Content-Type", "text/html")
+		filename := strings.Trim(c.Path(), "/")
+		return h.render(c, f(filename))
 	}
-
-	filename := strings.Trim(c.Path(), "/")
-
-	c.Set("Content-Type", "text/html")
-	return components.Accordion(sidebar, filename).Render(c.Context(), c.Response().BodyWriter())
-}
-
-func (h *Handler) Avatar(c *fiber.Ctx) error {
-	sidebar, err := config.LoadSidebar()
-	if err != nil {
-		return c.Status(500).SendString("Failed to load sidebar")
-	}
-
-	filename := strings.Trim(c.Path(), "/")
-
-	c.Set("Content-Type", "text/html")
-	return extra.Avatar(sidebar, filename).Render(c.Context(), c.Response().BodyWriter())
 }
 
 func (h *Handler) SingleVertical(c *fiber.Ctx) error {
-
 	filename := strings.Trim(c.Path(), "/")
-
-	c.Set("Content-Type", "text/html")
-	return layouts.SingleVertical(nil, filename).Render(c.Context(), c.Response().BodyWriter())
+	return h.render(c, pages.SingleVertical(filename))
 }

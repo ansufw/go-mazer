@@ -8,11 +8,11 @@ package layouts
 import "github.com/a-h/templ"
 import templruntime "github.com/a-h/templ/runtime"
 
-import (
-	"github.com/ansufw/go-mazer/apps/web/config"
-)
-
-func SingleVertical(title, web_title string, sidebarItems []config.SidebarItem, filename string, blockJs templ.Component, blockCss templ.Component) templ.Component {
+func SingleVertical(
+	title, web_title string,
+	filename string,
+	blockJs templ.Component,
+	blockCss templ.Component) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
@@ -33,7 +33,7 @@ func SingleVertical(title, web_title string, sidebarItems []config.SidebarItem, 
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<!doctype html><html lang=\"en\"><head><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><title>Layout Vertical 1 Column - Mazer</title><link rel=\"stylesheet\" href=\"assets/css/app.css\" type=\"text/css\"><link rel=\"stylesheet\" href=\"assets/css/app-dark.css\" type=\"text/css\"><link rel=\"shortcut icon\" href=\"assets/static/images/logo/favicon.svg\" type=\"image/x-icon\"><link rel=\"shortcut icon\" href=\"assets/static/images/logo/favicon.png\" type=\"image/png\"></head><body><script src=\"assets/static/js/initTheme.js\"></script><nav class=\"navbar navbar-light\"><div class=\"container d-block\"><a href=\"index.html\"><i class=\"bi bi-chevron-left\"></i></a> <a class=\"navbar-brand ms-4\" href=\"index.html\"><img src=\"assets/static/images/logo/logo.svg\"></a></div></nav>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<nav class=\"navbar navbar-light\"><div class=\"container d-block\"><a href=\"index.html\"><i class=\"bi bi-chevron-left\"></i></a> <a class=\"navbar-brand ms-4\" href=\"index.html\"><img src=\"assets/static/images/logo/logo.svg\"></a></div></nav>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -41,7 +41,7 @@ func SingleVertical(title, web_title string, sidebarItems []config.SidebarItem, 
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "<script src=\"assets/dist/app.js\"></script></body></html>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "<script src=\"assets/dist/app.js\"></script>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

@@ -1,19 +1,20 @@
-package components
+package pages
 
 import (
     "github.com/ansufw/go-mazer/views/layouts"
-	"github.com/ansufw/go-mazer/apps/web/config"
 )
 
-templ Accordion(sidebarItems []config.SidebarItem, filename string) {
+templ Accordion(filename string) {
 
-    @layouts.Base("Home", "Go Mazer", sidebarItems, filename, nil, nil) {
-        @blockContent()
-    }
+	@layouts.Base("Accordion") {
+		@layouts.SidebarLayout("Home", "Go Mazer", filename, nil, nil) {
+			@contentAccordion()
+		}
+	}
 
 }
 
-templ blockContent() {
+templ contentAccordion() {
     <div class="page-heading">
     <div class="page-title">
         <div class="row">

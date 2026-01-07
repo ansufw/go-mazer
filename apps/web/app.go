@@ -64,6 +64,7 @@ func New(serviceName string) (*App, error) {
 	app := fiber.New()
 
 	h := &handler.Handler{}
+	app.Use(h.CtxTempl())
 	router.Route(app, h)
 
 	return &App{app: app, config: config}, nil
