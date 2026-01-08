@@ -1,0 +1,37 @@
+package layouts
+
+import "github.com/ansufw/go-mazer/views/partials"
+import "github.com/ansufw/go-mazer/apps/web/data"
+
+
+templ LayoutHorizontal(
+    td data.TemplData, 
+    blockJs templ.Component, 
+    blockCss templ.Component) {
+    <div id="app">
+        <div id="main" class="layout-horizontal">
+            @navHorizontal(data.GetSidebar(ctx), td.StringMap[data.PathnameStrKey])
+
+            <div class="content-wrapper container">
+                { children... }
+            </div>
+
+        @partials.Footer()
+        </div>
+    </div>
+    // <script src="assets/static/js/components/dark.js"></script>
+    // <script src="assets/static/js/pages/horizontal-layout.js"></script>
+    // <script src="assets/extensions/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    
+
+    // {% if isDev %}
+    // <script src="assets/js/app.js" type="module"></script>
+    // {% else %}
+    // <script src="assets/compiled/js/app.js"></script>
+    // {% endif %}
+    <script src="assets/dist/app.js"></script>
+    
+    if blockJs != nil {
+        @blockJs
+    }
+}

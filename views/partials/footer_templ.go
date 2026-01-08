@@ -29,7 +29,7 @@ func Footer() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<footer><p>Footer test</p></footer>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<footer><div class=\"container\"><div class=\"footer clearfix mb-0 text-muted\"><div class=\"float-start\"><p>2023 &copy; Mazer</p></div><div class=\"float-end\"><p>Crafted with <span class=\"text-danger\"><i class=\"bi bi-heart\"></i></span> by <a href=\"https://saugi.me\">Saugi</a></p></div></div></div></footer>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

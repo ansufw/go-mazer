@@ -1,0 +1,31 @@
+package layouts
+
+import "github.com/ansufw/go-mazer/views/partials"
+import "github.com/ansufw/go-mazer/apps/web/data"
+
+templ LayoutVerticalNavbar(td data.TemplData, blockJs templ.Component, blockCss templ.Component) {
+     <div id="app">
+        <div id="sidebar">
+            @navSidebar(data.GetSidebar(ctx), td.StringMap[data.PathnameStrKey])
+
+        </div>
+        <div id="main" class='layout-navbar navbar-fixed'>
+            <header>
+                <nav class="navbar navbar-expand navbar-light navbar-top">
+                    @navVerticalNavbar()
+                </nav>
+            </header>
+            <div id="main-content">
+                {children...}
+            </div>
+            @partials.Footer()
+        </div>
+    </div> 
+    // <script src="assets/static/js/components/dark.js"></script>
+    // <script src="assets/dist/app.js"></script>
+    if blockJs != nil {
+        @blockJs
+    }
+
+   
+}

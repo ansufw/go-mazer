@@ -1,0 +1,119 @@
+package layouts
+
+import (
+    "github.com/ansufw/go-mazer/apps/web/config"
+)
+
+templ navHorizontal(sidebarItems []config.SidebarItem, filename string) {
+    <header class="mb-5">
+    <div class="header-top">
+        <div class="container">
+            <div class="logo">
+                <a href="index"><img src="assets/static/images/logo/logo.svg" alt="Logo"/></a>
+            </div>
+            <div class="header-top-right">
+
+                <div class="dropdown">
+                    <a href="#" id="topbarUserDropdown" class="user-dropdown d-flex align-items-center dropend dropdown-toggle " data-bs-toggle="dropdown" aria-expanded="false">
+                        <div class="avatar avatar-md2" >
+                            <img src="assets/static/images/faces/1.jpg" alt="Avatar"/>
+                        </div>
+                        <div class="text">
+                            <h6 class="user-dropdown-name">John Ducky</h6>
+                            <p class="user-dropdown-status text-sm text-muted">Member</p>
+                        </div>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end shadow-lg" aria-labelledby="topbarUserDropdown">
+                      <li><a class="dropdown-item" href="#">My Account</a></li>
+                      <li><a class="dropdown-item" href="#">Settings</a></li>
+                      <li><hr class="dropdown-divider"/></li>
+                      <li><a class="dropdown-item" href="auth-login.html">Logout</a></li>
+                    </ul>
+                </div>
+
+                <!-- Burger button responsive -->
+                <a href="#" class="burger-btn d-block d-xl-none">
+                    <i class="bi bi-justify fs-3"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <nav class="main-navbar">
+        <div class="container">
+            <ul>
+                {{ maxSubmenuItemY := 8 }}
+                for _, item := range sidebarItems {
+                    if !item.IsTitleItem() {
+                        {{
+                            activeClass := getActiveClass(item.URL, item.Key, filename)
+                            hasSubClass := getHasSubClass(item.HasSubmenu())
+                            itemClass := getClass(activeClass, hasSubClass)
+
+                            href := item.URL
+                            if href == "" {
+                                href = "#"
+                            }
+                        }}
+                        <li class={"menu-item " + itemClass}>
+                            <a href={ templ.SafeURL(href) } class="menu-link">
+                                <span><i class={"bi bi-" + item.Icon}></i> {item.Name}</span>
+                            </a>
+                            if item.HasSubmenu() {
+                                {{
+                                    submenuActive := false
+                                    for _, sub := range item.Submenu {
+                                        if getActiveClass(sub.URL, sub.Key, filename) != "" {
+                                            submenuActive = true
+                                        }
+                                    }
+                                    submenuClass := ""
+                                    if submenuActive {
+                                        submenuClass = "active"
+                                    }
+                                }}
+                                <div class={"submenu " + submenuClass}>
+                                    <!-- Wrap to submenu-group-wrapper if you want 3-level submenu. Otherwise remove it. -->
+                                    <div class="submenu-group-wrapper">
+                                        for i := 0; i < len(item.Submenu); i += maxSubmenuItemY {
+                                            <ul class="submenu-group">
+                                                for j := i; j < i + maxSubmenuItemY && j < len(item.Submenu); j++ {
+                                                    {{
+                                                        sub := item.Submenu[j]
+                                                        subActiveClass := getActiveClass(sub.URL, sub.Key, filename)
+                                                        subHasSubClass := getHasSubClass(sub.HasSubmenu())
+                                                        subItemClass := getClass(subActiveClass, subHasSubClass)
+                                                        
+                                                        subHref := sub.URL
+                                                        if subHref == "" {
+                                                            subHref = "#"
+                                                        }
+                                                    }}
+                                                    <li class={"submenu-item " + subItemClass}>
+                                                        <a href={ templ.SafeURL(subHref) } class="submenu-link">{ sub.Name }</a>
+
+                                                        if sub.HasSubmenu() {
+                                                        <!-- 3 Level Submenu -->
+                                                        <ul class="subsubmenu">
+                                                            for _, subsub := range sub.Submenu {
+                                                            <li class="subsubmenu-item ">
+                                                                <a href={ templ.SafeURL(subsub.URL) } class="subsubmenu-link">{ subsub.Name }</a>
+                                                            </li>
+                                                            }
+                                                        </ul>
+                                                        }
+                                                    </li>
+                                                }
+                                            </ul>
+                                        }
+                                    </div>
+                                </div>
+                            }
+                        </li>
+                    }
+                }
+            </ul>
+        </div>
+    </nav>
+
+    </header>
+}

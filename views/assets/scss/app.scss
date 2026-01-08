@@ -4,7 +4,7 @@
 
 
 // Import mazer Variables
-@use './variables';
+@import './variables';
 
 // Bootstrap + Icons
 $bootstrap-icons-font-src: url('../static/fonts/bootstrap-icons.woff2') format("woff2"), url('../static/fonts/bootstrap-icons.woff') format("woff") !default;

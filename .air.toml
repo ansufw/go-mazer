@@ -11,14 +11,16 @@ pre_cmd = [
     "templ generate",
     "bun run copy:assets",
     "esbuild views/assets/js/app.js --bundle --outfile=views/assets/dist/app.js --minify --sourcemap",
-    "sass --style compressed --load-path=node_modules --source-map --embed-source-map views/assets/scss/app.scss:views/assets/css/app.css",
-    "sass --style compressed --load-path=node_modules --source-map --embed-source-map views/assets/scss/themes/dark/app-dark.scss:views/assets/css/app-dark.css",
+    "sass --style compressed --load-path=node_modules --source-map --embed-source-map --quiet-deps views/assets/scss/app.scss:views/assets/css/app.css",
+    "sass --style compressed --load-path=node_modules --source-map --embed-source-map --quiet-deps views/assets/scss/themes/dark/app-dark.scss:views/assets/css/app-dark.css",
+    "npx rtlcss views/assets/css/app.css views/assets/css/app-rtl.css",
+    "npx rtlcss views/assets/css/app-dark.css views/assets/css/app-dark.rtl.css",
 ]
 cmd = "go build -o ./tmp/main cmd/*.go"
 delay = 1000
 entrypoint = ["./tmp/main"]
 exclude_dir = ["assets", "tmp", "vendor", "testdata", "node_modules", ".void"]
-exclude_file = ["app.css", "app-dark.css"]
+exclude_file = ["app.css", "app-dark.css", "app-rtl.css", "app-dark.rtl.css"]
 exclude_regex = ["_test.go", "_templ.go"]
 exclude_unchanged = false
 follow_symlink = false

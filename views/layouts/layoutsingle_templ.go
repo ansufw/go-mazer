@@ -31,7 +31,7 @@ func SingleVertical(
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<nav class=\"navbar navbar-light\"><div class=\"container d-block\"><a href=\"index.html\"><i class=\"bi bi-chevron-left\"></i></a> <a class=\"navbar-brand ms-4\" href=\"index.html\"><img src=\"assets/static/images/logo/logo.svg\"></a></div></nav>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<nav class=\"navbar navbar-light\"><div class=\"container d-block\"><a href=\"index\"><i class=\"bi bi-chevron-left\"></i></a> <a class=\"navbar-brand ms-4\" href=\"index\"><img src=\"assets/static/images/logo/logo.svg\"></a></div></nav>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

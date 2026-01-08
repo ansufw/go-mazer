@@ -1,0 +1,26 @@
+package layouts
+
+import "github.com/ansufw/go-mazer/views/partials"
+import "github.com/ansufw/go-mazer/apps/web/data"
+
+
+templ RTL(
+    td data.TemplData, 
+    blockJs templ.Component, 
+    blockCss templ.Component) {
+
+    <div id="app">
+        <div id="sidebar">
+            @navSidebar(data.GetSidebar(ctx), td.StringMap[data.PathnameStrKey])
+        </div>
+        <div id="main">
+            <header class="mb-3">
+                <a href="#" class="burger-btn d-block d-xl-none">
+                    <i class="bi bi-justify fs-3"></i>
+                </a>
+            </header>
+            {children...}
+            @partials.Footer()
+        </div>
+    </div>
+}

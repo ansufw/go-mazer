@@ -34,7 +34,19 @@ func Route(app *fiber.App, h *handler.Handler) {
 	app.Get("/component-tooltip", h.RenderPage(pages.Tooltip)).Name("tooltip")
 
 	app.Get("/extra-component-avatar", h.RenderPage(pages.Avatar)).Name("avatar")
+	app.Get("/extra-component-comment", h.RenderPage(pages.Comment)).Name("comment")
+	app.Get("/extra-component-divider", h.RenderPage(pages.Divider)).Name("divider")
+	app.Get("/extra-component-date-picker", h.RenderPage(pages.DatePicker)).Name("date-picker")
+	app.Get("/extra-component-flag", h.RenderPage(pages.Flag)).Name("flag")
+	app.Get("/extra-component-sweetalert", h.RenderPage(pages.SweetAlert)).Name("sweetalert")
+	app.Get("/extra-component-toastify", h.RenderPage(pages.Toastify)).Name("toastify")
+	app.Get("/extra-component-rating", h.RenderPage(pages.Rating)).Name("rating")
+	app.Get("/extra-component-glightbox", h.RenderPage(pages.GLightbox)).Name("glightbox")
 
 	app.Get("/single-vertical", h.RenderPage(pages.SingleVertical)).Name("single-vertical")
+	app.Get("/single-horizontal", h.RenderPage(pages.LayoutHorizontal)).Name("horizontal")
+	app.Get("/vertical-navbar", h.RenderPage(pages.LayoutVerticalNavbar)).Name("vertical-navbar")
+	app.Get("/default-layout", h.RenderPage(pages.LayoutDefault)).Name("default-layout")
+	app.Get("/rtl-layout", h.RenderPage(pages.LayoutRtl)).Name("rtl-layout")
 
 }

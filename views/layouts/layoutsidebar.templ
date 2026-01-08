@@ -8,12 +8,13 @@ templ SidebarLayout(
     blockJs templ.Component, 
     blockCss templ.Component) {
         
+    if blockCss != nil {
+        @blockCss
+    }
   
     <div id="app">
         <div id="sidebar">
-
-
-        @Sidebar(data.GetSidebar(ctx), td.StringMap[data.PathnameStrKey])
+            @navSidebar(data.GetSidebar(ctx), td.StringMap[data.PathnameStrKey])
         </div>
         <div id="main">
             <header class="mb-3">
@@ -26,8 +27,8 @@ templ SidebarLayout(
             @partials.Footer()
         </div>
     </div>
-    <script src="assets/static/js/components/dark.js"></script>
-    <script src="assets/dist/app.js"></script>
+    // <script src="assets/static/js/components/dark.js"></script>
+    // <script src="assets/dist/app.js"></script>
     if blockJs != nil {
         @blockJs
     }
