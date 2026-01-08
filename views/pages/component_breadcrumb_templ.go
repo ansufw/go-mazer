@@ -13,7 +13,7 @@ import (
 	"github.com/ansufw/go-mazer/views/layouts"
 )
 
-func SingleVertical(td data.TemplData) templ.Component {
+func Breadcrumb(td data.TemplData) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
@@ -58,19 +58,19 @@ func SingleVertical(td data.TemplData) templ.Component {
 					}()
 				}
 				ctx = templ.InitializeContext(ctx)
-				templ_7745c5c3_Err = contentSingle().Render(ctx, templ_7745c5c3_Buffer)
+				templ_7745c5c3_Err = contentBreadcrumb().Render(ctx, templ_7745c5c3_Buffer)
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
 				return nil
 			})
-			templ_7745c5c3_Err = layouts.SingleVertical(nil, nil).Render(templ.WithChildren(ctx, templ_7745c5c3_Var3), templ_7745c5c3_Buffer)
+			templ_7745c5c3_Err = layouts.SidebarLayout(td, nil, nil).Render(templ.WithChildren(ctx, templ_7745c5c3_Var3), templ_7745c5c3_Buffer)
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			return nil
 		})
-		templ_7745c5c3_Err = layouts.Base("SingleVertical").Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = layouts.Base("Breadcrumb").Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -78,7 +78,7 @@ func SingleVertical(td data.TemplData) templ.Component {
 	})
 }
 
-func contentSingle() templ.Component {
+func contentBreadcrumb() templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
@@ -99,7 +99,7 @@ func contentSingle() templ.Component {
 			templ_7745c5c3_Var4 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"container\"><div class=\"card mt-5\"><div class=\"card-header\"><h4 class=\"card-title\">Single Layout</h4></div><div class=\"card-body\"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus nemo quasi labore expedita? Veritatis at maxime id voluptates excepturi molestiae possimus blanditiis dicta consequuntur maiores suscipit, eveniet neque obcaecati doloribus.</p></div></div></div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"page-heading\"><div class=\"page-title\"><div class=\"row\"><div class=\"col-12 col-md-6 order-md-1 order-last\"><h3>Breadcrumb</h3><p class=\"text-subtitle text-muted\">Indicate the current page’s location within a navigational hierarchy that automatically adds separators via CSS.</p></div><div class=\"col-12 col-md-6 order-md-2 order-first\"><nav aria-label=\"breadcrumb\" class=\"breadcrumb-header float-start float-lg-end\"><ol class=\"breadcrumb\"><li class=\"breadcrumb-item\"><a href=\"index.html\">Dashboard</a></li><li class=\"breadcrumb-item active\" aria-current=\"page\">Breadcrumb</li></ol></nav></div></div></div><section class=\"section\"><div class=\"card\"><div class=\"card-header\"><h4 class=\"card-title\">Default</h4></div><div class=\"card-body\"><nav aria-label=\"breadcrumb\"><ol class=\"breadcrumb\"><li class=\"breadcrumb-item active\" aria-current=\"page\">Home</li></ol></nav><nav aria-label=\"breadcrumb\"><ol class=\"breadcrumb\"><li class=\"breadcrumb-item\"><a href=\"#\">Home</a></li><li class=\"breadcrumb-item active\" aria-current=\"page\">Library</li></ol></nav><nav aria-label=\"breadcrumb\"><ol class=\"breadcrumb\"><li class=\"breadcrumb-item\"><a href=\"#\">Home</a></li><li class=\"breadcrumb-item\"><a href=\"#\">Library</a></li><li class=\"breadcrumb-item active\" aria-current=\"page\">Data</li></ol></nav></div></div><div class=\"card\"><div class=\"card-header\"><h4 class=\"card-title\">Position</h4></div><div class=\"card-body\"><nav aria-label=\"breadcrumb\"><ol class=\"breadcrumb\"><li class=\"breadcrumb-item\"><a href=\"#\">Home</a></li><li class=\"breadcrumb-item\"><a href=\"#\">Library</a></li><li class=\"breadcrumb-item active\" aria-current=\"page\">Data</li></ol></nav><nav aria-label=\"breadcrumb\"><ol class=\"breadcrumb breadcrumb-center\"><li class=\"breadcrumb-item\"><a href=\"#\">Home</a></li><li class=\"breadcrumb-item\"><a href=\"#\">Library</a></li><li class=\"breadcrumb-item active\" aria-current=\"page\">Data</li></ol></nav><nav aria-label=\"breadcrumb\"><ol class=\"breadcrumb breadcrumb-right\"><li class=\"breadcrumb-item\"><a href=\"#\">Home</a></li><li class=\"breadcrumb-item\"><a href=\"#\">Library</a></li><li class=\"breadcrumb-item active\" aria-current=\"page\">Data</li></ol></nav></div></div></section></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

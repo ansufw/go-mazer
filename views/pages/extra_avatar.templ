@@ -2,16 +2,15 @@ package pages
 
 import (
     "github.com/ansufw/go-mazer/views/layouts"
+    "github.com/ansufw/go-mazer/apps/web/data"
 )
 
-templ Avatar(filename string) {
-
+templ Avatar(td data.TemplData) {
     @layouts.Base("Avatar") {   
-        @layouts.SidebarLayout("Avatar", "Go Mazer", filename, nil, nil) {
+        @layouts.SidebarLayout(td, nil, nil) {
             @contentAvatar()
         }
     }
-
 }
 
 templ contentAvatar() {

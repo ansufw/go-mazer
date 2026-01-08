@@ -1,12 +1,13 @@
 package pages
 
 import (
+    "github.com/ansufw/go-mazer/apps/web/data"
     "github.com/ansufw/go-mazer/views/layouts"
 )
 
-templ Badge(filename string) {
+templ Badge(td data.TemplData) {
     	@layouts.Base("Accordion") {
-		@layouts.SidebarLayout("Home", "Go Mazer", filename, nil, nil) {
+		@layouts.SidebarLayout(td, nil, nil) {
 			@contentBadge()
 		}
 	}

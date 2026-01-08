@@ -12,8 +12,7 @@ import "github.com/ansufw/go-mazer/views/partials"
 import "github.com/ansufw/go-mazer/apps/web/data"
 
 func SidebarLayout(
-	title, web_title string,
-	filename string,
+	td data.TemplData,
 	blockJs templ.Component,
 	blockCss templ.Component) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
@@ -40,7 +39,7 @@ func SidebarLayout(
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = Sidebar(data.GetSidebar(ctx, "template-data"), filename).Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = Sidebar(data.GetSidebar(ctx), td.StringMap[data.PathnameStrKey]).Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

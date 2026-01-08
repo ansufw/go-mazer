@@ -1,5 +1,5 @@
 app:
     web:
-      name: "dashboard-admin"
+      name: "go-mazer: admin dashboard with gofiber"
       port: 8080
       mode: "dev"

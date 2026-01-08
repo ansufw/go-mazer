@@ -6,13 +6,20 @@ import (
 	"github.com/gofiber/fiber/v2"
 )
 
-func (h *Handler) CtxTempl() fiber.Handler {
+func (h *Handler) CtxTempl(appName string) fiber.Handler {
 
 	return func(c *fiber.Ctx) (err error) {
-		td := &data.TemplData{
-			Data: make(map[string]any),
+
+		stringMap := map[data.TdKey]string{
+			data.AppnameStrKey: appName,
 		}
-		c.Context().SetUserValue("template-data", td)
+
+		td := &data.TemplData{
+			Data:      make(map[data.TdKey]any),
+			StringMap: stringMap,
+		}
+
+		c.Context().SetUserValue(data.TemplDataKey, td)
 
 		return c.Next()
 	}
@@ -24,6 +31,6 @@ func (h *Handler) WithSidebar(c *fiber.Ctx) error {
 	if err != nil {
 		return c.Status(500).SendString("Failed to load sidebar")
 	}
-	data.SetSidebar(c.Context(), "template-data", sidebar)
+	data.SetSidebar(c.Context(), sidebar)
 	return c.Next()
 }

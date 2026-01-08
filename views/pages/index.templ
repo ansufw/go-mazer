@@ -2,12 +2,13 @@ package pages
 
 import (
     "github.com/ansufw/go-mazer/views/layouts"
+    "github.com/ansufw/go-mazer/apps/web/data"
 )
 
-templ Index(filename string) {
+templ Index(td data.TemplData) {
 
         @layouts.Base("Index") {
-            @layouts.SidebarLayout("Home", "Go Mazer", filename, blockScript(), blockStyle()) {
+            @layouts.SidebarLayout(td, blockScript(), blockStyle()) {
                 @blockContent()
             }
         }

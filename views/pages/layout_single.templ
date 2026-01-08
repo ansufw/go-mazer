@@ -2,12 +2,13 @@ package pages
 
 import (
     "github.com/ansufw/go-mazer/views/layouts"
+    "github.com/ansufw/go-mazer/apps/web/data"
 )
 
-templ SingleVertical(filename string) {
+templ SingleVertical(td data.TemplData) {
 
-    @layouts.Base("Layout Single") {
-        @layouts.SingleVertical("Layout Single", "Go Mazer", filename, nil, nil) {
+    @layouts.Base("SingleVertical") {
+        @layouts.SingleVertical(nil, nil) {
             @contentSingle()
         }
     }

@@ -4,7 +4,7 @@ import (
 	"strings"
 
 	"github.com/a-h/templ"
-	"github.com/ansufw/go-mazer/views/pages"
+	"github.com/ansufw/go-mazer/apps/web/data"
 	"github.com/gofiber/fiber/v2"
 )
 
@@ -21,15 +21,14 @@ func (h *Handler) render(c *fiber.Ctx, component templ.Component) error {
 	return component.Render(c.Context(), c.Response().BodyWriter())
 }
 
-func (h *Handler) RenderPage(f func(string) templ.Component) func(*fiber.Ctx) error {
+func (h *Handler) RenderPage(f func(data.TemplData) templ.Component) func(*fiber.Ctx) error {
 	return func(c *fiber.Ctx) error {
 		c.Set("Content-Type", "text/html")
 		filename := strings.Trim(c.Path(), "/")
-		return h.render(c, f(filename))
+		strMap := map[data.TdKey]string{data.PathnameStrKey: filename}
+		td := data.TemplData{
+			StringMap: strMap,
+		}
+		return h.render(c, f(td))
 	}
-}
-
-func (h *Handler) SingleVertical(c *fiber.Ctx) error {
-	filename := strings.Trim(c.Path(), "/")
-	return h.render(c, pages.SingleVertical(filename))
 }

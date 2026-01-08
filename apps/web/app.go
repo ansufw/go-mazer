@@ -61,10 +61,15 @@ func New(serviceName string) (*App, error) {
 		return nil, fmt.Errorf("failed to load config: %w", err)
 	}
 
-	app := fiber.New()
+	app := fiber.New(
+		fiber.Config{
+			AppName:      config.Name,
+			ServerHeader: config.Name,
+		},
+	)
 
 	h := &handler.Handler{}
-	app.Use(h.CtxTempl())
+	app.Use(h.CtxTempl(config.Name))
 	router.Route(app, h)
 
 	return &App{app: app, config: config}, nil

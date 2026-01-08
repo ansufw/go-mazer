@@ -2,12 +2,13 @@ package pages
 
 import (
     "github.com/ansufw/go-mazer/views/layouts"
+	"github.com/ansufw/go-mazer/apps/web/data"
 )
 
-templ Accordion(filename string) {
+templ Accordion(td data.TemplData) {
 
 	@layouts.Base("Accordion") {
-		@layouts.SidebarLayout("Home", "Go Mazer", filename, nil, nil) {
+		@layouts.SidebarLayout(td, nil, nil) {
 			@contentAccordion()
 		}
 	}
