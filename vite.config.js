@@ -48,6 +48,7 @@ export default defineConfig({
                 style: resolve(__dirname, 'views/assets/scss/app.scss'),
                 dark: resolve(__dirname, 'views/assets/scss/themes/dark/app-dark.scss'),
                 flag: resolve(__dirname, 'views/assets/scss/pages/flag.scss'),
+                sweetalert2: resolve(__dirname, 'views/assets/scss/pages/sweetalert2.scss'),
             },
             output: {
                 entryFileNames: `js/[name].js`,
