@@ -18,13 +18,43 @@
 - Frontend Dashboard
 
 
-## Installation
-
-TODO
-
 ## Usage
 
-TODO
+### Development
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/ansufw/go-mazer.git
+   cd go-mazer
+   ```
+
+2. Install dependencies:
+   ```bash
+   bun install
+   go mod tidy
+   ```
+
+3. Run the development server:
+   - Start the frontend build in watch mode:
+     ```bash
+     bun run dev
+     ```
+   - Start the backend server with Air (live reload):
+     ```bash
+     air
+     ```
+
+### Production Build
+
+1. Build frontend assets:
+   ```bash
+   bun run build
+   ```
+
+2. Build the Go binary:
+   ```bash
+   go build -o bin/server cmd/main.go
+   ```
 
 ## License
 

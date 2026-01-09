@@ -7,7 +7,7 @@ import (
 
 templ Tooltip(td data.TemplData) {
     	@layouts.Base("Tooltip") {
-		@layouts.SidebarLayout(td, nil, nil) {
+		@layouts.SidebarLayout(td, scriptTooltip(), nil) {
 			@contentTooltip()
 		}
 	}
@@ -88,4 +88,17 @@ templ contentTooltip() {
         </div>
     </section>
 </div>
+}
+
+templ scriptTooltip() {
+<script>
+    // If you want to use tooltips in your project, we suggest initializing them globally
+    // instead of a "per-page" level.
+    document.addEventListener('DOMContentLoaded', function () {
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl)
+        })
+    }, false);
+</script>
 }

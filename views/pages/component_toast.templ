@@ -7,7 +7,7 @@ import (
 
 templ Toast(td data.TemplData) {
     	@layouts.Base("Toast") {
-		@layouts.SidebarLayout(td, nil, nil) {
+		@layouts.SidebarLayout(td, scriptToast(), nil) {
 			@contentToast()
 		}
 	}
@@ -80,4 +80,8 @@ templ contentToast() {
         </div>
     </section>
 </div>
+}
+
+templ scriptToast() {
+<script src="assets/static/js/pages/component-toasts.js"></script>
 }
