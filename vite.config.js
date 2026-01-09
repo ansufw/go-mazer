@@ -2,7 +2,9 @@ import { defineConfig, normalizePath } from 'vite'
 import path, { resolve } from 'path'
 import { viteStaticCopy } from 'vite-plugin-static-copy';
 
-// Modules to copy (mimicking scripts/copy-assets.js)
+// Modules and extensions
+// If the value is true, then it will copy the files inside the `dist` folders
+// But if the value is false, it will copy the entire module files and folders
 const modulesToCopy = {
     "apexcharts": true,
     "perfect-scrollbar": true,
@@ -25,6 +27,8 @@ const modulesToCopy = {
     "quill": true,
     "simple-datatables": true,
     "jsvectormap": true,
+    "toastify-js": false,
+    "rater-js": false,
 };
 
 const copyModules = Object.keys(modulesToCopy).map(moduleName => {
