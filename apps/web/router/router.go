@@ -80,4 +80,7 @@ func Route(app *fiber.App, h *handler.Handler) {
 	app.Get("/ui-icons-fontawesome", h.RenderPage(pages.IconsFontawesome)).Name("ui-icons-fontawesome")
 	app.Get("/ui-icons-dripicons", h.RenderPage(pages.IconsDripicons)).Name("ui-icons-dripicons")
 
+	app.Get("/ui-chart-chartjs", h.RenderPage(pages.ChartJS)).Name("ui-chart-chartjs")
+	app.Get("/ui-chart-apexcharts", h.RenderPage(pages.Apexcharts)).Name("ui-chart-apexcharts")
+
 }

@@ -149,8 +149,8 @@ var SidebarData = []SidebarItem{
 		Key:  "ui-chart",
 		Icon: "bar-chart-fill",
 		Submenu: []SidebarItem{
-			{Name: "ChartJS", URL: "ui-chart-chartjs.html"},
-			{Name: "Apexcharts", URL: "ui-chart-apexcharts.html"},
+			{Name: "ChartJS", RouteName: "ui-chart-chartjs"},
+			{Name: "Apexcharts", RouteName: "ui-chart-apexcharts"},
 		},
 	},
 	{
