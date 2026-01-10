@@ -5,6 +5,8 @@
     "": {
       "name": "go-mazer",
       "dependencies": {
+        "@fortawesome/fontawesome-free": "^5.15.4",
+        "@icon/dripicons": "^2.0.0-alpha.3",
         "apexcharts": "^5.3.6",
         "bootstrap": "^5.3.8",
         "bootstrap-icons": "^1.13.1",
@@ -102,6 +104,10 @@
     "@esbuild/win32-ia32": ["@esbuild/win32-ia32@0.20.2", "", { "os": "win32", "cpu": "ia32" }, "sha512-HfLOfn9YWmkSKRQqovpnITazdtquEW8/SoHW7pWpuEeguaZI4QnCRW6b+oZTztdBnZOS2hqJ6im/D5cPzBTTlQ=="],
 
     "@esbuild/win32-x64": ["@esbuild/win32-x64@0.20.2", "", { "os": "win32", "cpu": "x64" }, "sha512-N49X4lJX27+l9jbLKSqZ6bKNjzQvHaT8IIFUy+YIqmXQdjYCToGWwOItDrfby14c78aDd5NHQl29xingXfCdLQ=="],
+
+    "@fortawesome/fontawesome-free": ["@fortawesome/fontawesome-free@5.15.4", "", {}, "sha512-eYm8vijH/hpzr/6/1CJ/V/Eb1xQFW2nnUKArb3z+yUWv7HTwj6M7SP957oMjfZjAHU6qpoNc2wQvIxBLWYa/Jg=="],
+
+    "@icon/dripicons": ["@icon/dripicons@2.0.0-alpha.3", "", {}, "sha512-DKwwhcBFscTxPmkG9ORU430KAmgieI9C7AIYqTo3M6G4lZUh451w4hCFeFsrEEqd4gVcZerEF4Jfbxg3fUJ0ow=="],
 
     "@kurkle/color": ["@kurkle/color@0.3.4", "", {}, "sha512-M5UknZPHRu3DEDWoipU6sE8PdkZ6Z/S+v4dD+Ke8IaNlpdSQah50lz1KtcFBa2vsdOnwbbnxJwVM4wty6udA5w=="],
 

@@ -6,6 +6,8 @@ import { viteStaticCopy } from 'vite-plugin-static-copy';
 // If the value is true, then it will copy the files inside the `dist` folders
 // But if the value is false, it will copy the entire module files and folders
 const modulesToCopy = {
+    "@icon/dripicons": false, // With dist folder = false
+    "@fortawesome/fontawesome-free": false,
     "apexcharts": true,
     "perfect-scrollbar": true,
     "sweetalert2": true,
@@ -26,9 +28,13 @@ const modulesToCopy = {
     "jquery": true,
     "quill": true,
     "simple-datatables": true,
+    "datatables.net": false,
+    "datatables.net-bs5": false,
     "jsvectormap": true,
     "toastify-js": false,
     "rater-js": false,
+    "choices.js": false,
+    "tinymce": false,
 };
 
 const copyModules = Object.keys(modulesToCopy).map(moduleName => {
@@ -53,6 +59,9 @@ export default defineConfig({
                 dark: resolve(__dirname, 'views/assets/scss/themes/dark/app-dark.scss'),
                 flag: resolve(__dirname, 'views/assets/scss/pages/flag.scss'),
                 sweetalert2: resolve(__dirname, 'views/assets/scss/pages/sweetalert2.scss'),
+                todo: resolve(__dirname, 'views/assets/scss/widgets/todo.scss'),
+                chat: resolve(__dirname, 'views/assets/scss/widgets/chat.scss'),
+                dripicons: resolve(__dirname, 'views/assets/scss/pages/dripicons.scss'),
             },
             output: {
                 entryFileNames: `js/[name].js`,

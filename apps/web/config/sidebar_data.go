@@ -84,7 +84,7 @@ var SidebarData = []SidebarItem{
 	},
 	{
 		Name: "Form Layout",
-		URL:  "form-layout.html",
+		URL:  "form-layout",
 		Icon: "file-earmark-medical-fill",
 	},
 	{
@@ -92,7 +92,7 @@ var SidebarData = []SidebarItem{
 		Icon: "journal-check",
 		Key:  "form-validation",
 		Submenu: []SidebarItem{
-			{Name: "Parsley", URL: "form-validation-parsley.html"},
+			{Name: "Parsley", URL: "form-validation-parsley"},
 		},
 	},
 	{
@@ -100,15 +100,15 @@ var SidebarData = []SidebarItem{
 		Icon: "pen-fill",
 		Key:  "form-editor",
 		Submenu: []SidebarItem{
-			{Name: "Quill", URL: "form-editor-quill.html"},
-			{Name: "CKEditor", URL: "form-editor-ckeditor.html"},
-			{Name: "Summernote", URL: "form-editor-summernote.html"},
-			{Name: "TinyMCE", URL: "form-editor-tinymce.html"},
+			{Name: "Quill", RouteName: "form-editor-quill"},
+			{Name: "CKEditor", RouteName: "form-editor-ckeditor"},
+			{Name: "Summernote", RouteName: "form-editor-summernote"},
+			{Name: "TinyMCE", RouteName: "form-editor-tinymce"},
 		},
 	},
 	{
 		Name: "Table",
-		URL:  "table.html",
+		URL:  "table",
 		Icon: "grid-1x2-fill",
 	},
 	{
@@ -116,8 +116,8 @@ var SidebarData = []SidebarItem{
 		Key:  "table-datatable",
 		Icon: "file-earmark-spreadsheet-fill",
 		Submenu: []SidebarItem{
-			{Name: "Datatable", URL: "table-datatable.html"},
-			{Name: "Datatable (jQuery)", URL: "table-datatable-jquery.html"},
+			{Name: "Datatable", RouteName: "table-datatable"},
+			{Name: "Datatable (jQuery)", RouteName: "table-datatable-jquery"},
 		},
 	},
 	{
@@ -129,9 +129,9 @@ var SidebarData = []SidebarItem{
 		Key:  "ui-widgets",
 		Icon: "pentagon-fill",
 		Submenu: []SidebarItem{
-			{Name: "Chatbox", URL: "ui-widgets-chatbox.html"},
-			{Name: "Pricing", URL: "ui-widgets-pricing.html"},
-			{Name: "To-do List", URL: "ui-widgets-todolist.html"},
+			{Name: "Chatbox", RouteName: "ui-widgets-chatbox"},
+			{Name: "Pricing", RouteName: "ui-widgets-pricing"},
+			{Name: "To-do List", RouteName: "ui-widgets-todolist"},
 		},
 	},
 	{
@@ -139,9 +139,9 @@ var SidebarData = []SidebarItem{
 		Key:  "ui-icons",
 		Icon: "egg-fill",
 		Submenu: []SidebarItem{
-			{Name: "Bootstrap Icons ", URL: "ui-icons-bootstrap-icons.html"},
-			{Name: "Fontawesome", URL: "ui-icons-fontawesome.html"},
-			{Name: "Dripicons", URL: "ui-icons-dripicons.html"},
+			{Name: "Bootstrap Icons ", RouteName: "ui-icons-bootstrap-icons"},
+			{Name: "Fontawesome", RouteName: "ui-icons-fontawesome"},
+			{Name: "Dripicons", RouteName: "ui-icons-dripicons"},
 		},
 	},
 	{

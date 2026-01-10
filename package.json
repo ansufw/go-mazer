@@ -19,6 +19,8 @@
     "vite-plugin-static-copy": "^3.1.4"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.4",
+    "@icon/dripicons": "^2.0.0-alpha.3",
     "apexcharts": "^5.3.6",
     "bootstrap": "^5.3.8",
     "bootstrap-icons": "^1.13.1",

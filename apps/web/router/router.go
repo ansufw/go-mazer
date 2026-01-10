@@ -52,5 +52,32 @@ func Route(app *fiber.App, h *handler.Handler) {
 
 	app.Get("/form-element-checkbox", h.RenderPage(pages.FormElementCheckbox)).Name("form-element-checkbox")
 	app.Get("/form-element-input", h.RenderPage(pages.FormElementInput)).Name("form-element-input")
+	app.Get("/form-element-input-group", h.RenderPage(pages.FormElementInputGroup)).Name("form-element-input-group")
+	app.Get("/form-element-select", h.RenderPage(pages.FormElementSelect)).Name("form-element-select")
+	app.Get("/form-element-radio", h.RenderPage(pages.FormElementRadio)).Name("form-element-radio")
+	app.Get("/form-element-checkbox", h.RenderPage(pages.FormElementCheckbox)).Name("form-element-checkbox")
+	app.Get("/form-element-textarea", h.RenderPage(pages.FormElementTextarea)).Name("form-element-textarea")
+
+	app.Get("/form-layout", h.RenderPage(pages.FormLayout)).Name("form-layout")
+
+	app.Get("/form-validation-parsley", h.RenderPage(pages.FormValidationParsley)).Name("form-validation-parsley")
+
+	app.Get("/form-editor-quill", h.RenderPage(pages.FormEditorQuill)).Name("form-editor-quill")
+	app.Get("/form-editor-ckeditor", h.RenderPage(pages.FormEditorCKE)).Name("form-editor-ckeditor")
+	app.Get("/form-editor-summernote", h.RenderPage(pages.FormEditorSummernote)).Name("form-editor-summernote")
+	app.Get("/form-editor-tinymce", h.RenderPage(pages.FormEditorTinyMCE)).Name("form-editor-tinymce")
+
+	app.Get("/table", h.RenderPage(pages.Table)).Name("table")
+
+	app.Get("/table-datatable", h.RenderPage(pages.TableDatatable)).Name("table-datatable")
+	app.Get("/table-datatable-jquery", h.RenderPage(pages.TableDatatableJquery)).Name("table-datatable-jquery")
+
+	app.Get("/ui-widgets-chatbox", h.RenderPage(pages.Chatbox)).Name("ui-widgets-chatbox")
+	app.Get("/ui-widgets-pricing", h.RenderPage(pages.Pricing)).Name("ui-widgets-pricing")
+	app.Get("/ui-widgets-todolist", h.RenderPage(pages.TodoList)).Name("ui-widgets-todolist")
+
+	app.Get("/ui-icons-bootstrap-icons", h.RenderPage(pages.IconsBootstrapIcons)).Name("ui-icons-bootstrap-icons")
+	app.Get("/ui-icons-fontawesome", h.RenderPage(pages.IconsFontawesome)).Name("ui-icons-fontawesome")
+	app.Get("/ui-icons-dripicons", h.RenderPage(pages.IconsDripicons)).Name("ui-icons-dripicons")
 
 }
