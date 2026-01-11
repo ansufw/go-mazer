@@ -8,9 +8,8 @@
 
 - Go (Golang) 1.21 or higher
 - Fiber
-- HTML, CSS, and JavaScript
-- Bootstrap v5.3.3
 - Esbuild for building assets - https://esbuild.github.io
+- Docker (optional)
 
 ## Features
 
