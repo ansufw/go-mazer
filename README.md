@@ -6,8 +6,8 @@
 
 ## Requirements
 
-- Go (Golang) 1.21 or higher
-- Fiber
+- Go Fiber v2 & Go Templ
+- BunJS & Vite
 - Esbuild for building assets - https://esbuild.github.io
 - Docker (optional)
 
