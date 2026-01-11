@@ -10,13 +10,11 @@
 - Fiber
 - HTML, CSS, and JavaScript
 - Bootstrap v5.3.3
-- JWT for authentication
 - Esbuild for building assets - https://esbuild.github.io
 
 ## Features
 
 - Frontend Dashboard
-
 
 ## Usage
 
