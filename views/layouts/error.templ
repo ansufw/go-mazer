@@ -1,0 +1,27 @@
+package layouts
+
+import (
+	"github.com/ansufw/go-mazer/apps/web/data"
+)
+
+templ ErrorLayout(title string) {
+	<!DOCTYPE html>
+	<html lang="en">
+		<head>
+			<meta charset="UTF-8"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+			<link rel="stylesheet" href="assets/css/app.css" type="text/css"/>
+			<link rel="stylesheet" href="assets/css/app-dark.css" type="text/css"/>
+			<link rel="stylesheet" href="assets/compiled/css/error.css" type="text/css"/>
+			<link rel="shortcut icon" href="assets/static/images/logo/favicon.svg" type="image/x-icon"/>
+			<link rel="shortcut icon" href="assets/static/images/logo/favicon.png" type="image/png"/>
+			<title>{ title } - { data.GetAppName(ctx) }</title>
+		</head>
+		<body>
+			<script src="assets/static/js/initTheme.js"></script>
+			<div id="error">
+				{ children... }
+			</div>
+		</body>
+	</html>
+}

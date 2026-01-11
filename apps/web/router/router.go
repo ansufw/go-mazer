@@ -83,4 +83,32 @@ func Route(app *fiber.App, h *handler.Handler) {
 	app.Get("/ui-chart-chartjs", h.RenderPage(pages.ChartJS)).Name("ui-chart-chartjs")
 	app.Get("/ui-chart-apexcharts", h.RenderPage(pages.Apexcharts)).Name("ui-chart-apexcharts")
 
+	// Authentication
+	app.Get("/auth-login", h.RenderPage(pages.AuthLogin)).Name("auth-login")
+	app.Get("/auth-register", h.RenderPage(pages.AuthRegister)).Name("auth-register")
+	app.Get("/auth-forgot-password", h.RenderPage(pages.AuthForgotPassword)).Name("auth-forgot-password")
+
+	// Errors
+	app.Get("/error-403", h.RenderPage(pages.Error403)).Name("error-403")
+	app.Get("/error-404", h.RenderPage(pages.Error404)).Name("error-404")
+	app.Get("/error-500", h.RenderPage(pages.Error500)).Name("error-500")
+
+	// Account
+	app.Get("/account-profile", h.RenderPage(pages.AccountProfile)).Name("account-profile")
+	app.Get("/account-security", h.RenderPage(pages.AccountSecurity)).Name("account-security")
+
+	// Application
+	app.Get("/application-email", h.RenderPage(pages.ApplicationEmail)).Name("application-email")
+	app.Get("/application-chat", h.RenderPage(pages.ApplicationChat)).Name("application-chat")
+	app.Get("/application-gallery", h.RenderPage(pages.ApplicationGallery)).Name("application-gallery")
+	app.Get("/application-checkout", h.RenderPage(pages.ApplicationCheckout)).Name("application-checkout")
+
+	// UI
+	app.Get("/ui-file-uploader", h.RenderPage(pages.UiFileUploader)).Name("ui-file-uploader")
+	app.Get("/ui-map-google-map", h.RenderPage(pages.UiMapGoogleMap)).Name("ui-map-google-map")
+	app.Get("/ui-map-jsvectormap", h.RenderPage(pages.UiMapJsvectormap)).Name("ui-map-jsvectormap")
+	app.Get("/ui-map-leaflet", h.RenderPage(pages.UiMapLeaflet)).Name("ui-map-leaflet")
+	app.Get("/ui-map-openlayers", h.RenderPage(pages.UiMapOpenlayers)).Name("ui-map-openlayers")
+
+	app.Get("/ui-multi-level-menu", h.RenderPage(pages.UiMultiLevelMenu)).Name("ui-multi-level-menu")
 }

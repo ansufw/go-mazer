@@ -1,3 +1,5 @@
 main
 tmp/
 node_modules/
+.void/
+views/assets/compiled/

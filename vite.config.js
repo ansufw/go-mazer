@@ -35,6 +35,8 @@ const modulesToCopy = {
     "rater-js": false,
     "choices.js": false,
     "tinymce": false,
+    "dayjs": false,
+    "bootstrap-icons": false,
 };
 
 const copyModules = Object.keys(modulesToCopy).map(moduleName => {
@@ -62,6 +64,9 @@ export default defineConfig({
                 todo: resolve(__dirname, 'views/assets/scss/widgets/todo.scss'),
                 chat: resolve(__dirname, 'views/assets/scss/widgets/chat.scss'),
                 dripicons: resolve(__dirname, 'views/assets/scss/pages/dripicons.scss'),
+                auth: resolve(__dirname, 'views/assets/scss/pages/auth.scss'),
+                error: resolve(__dirname, 'views/assets/scss/pages/error.scss'),
+                email: resolve(__dirname, 'views/assets/scss/pages/email.scss'),
             },
             output: {
                 entryFileNames: `js/[name].js`,
