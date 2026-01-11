@@ -56,6 +56,14 @@
    go build -o bin/server cmd/main.go
    ```
 
+### Using Docker
+
+after cloned the repository, you can run the following command to start the server:
+
+```
+docker run --rm -p 8080:8080 $(docker build -q -f Containerfile .)
+```
+
 ## License
 
 This project is licensed under the MIT License.

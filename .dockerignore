@@ -1,0 +1,19 @@
+# Exclude version control
+.git
+.gitignore
+
+# Exclude dependencies (CRITICAL: prevents platform mismatch issues)
+node_modules
+
+# Exclude build artifacts
+dist
+views/assets/compiled
+tmp
+
+# Exclude system files
+.DS_Store
+.env
+
+# Exclude IDE files
+.idea
+.vscode
