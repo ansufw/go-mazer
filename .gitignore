@@ -5,4 +5,5 @@ node_modules/
 views/assets/compiled/
 views/assets/dist/
 .DS_Store
+*_templ.go
 
