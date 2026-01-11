@@ -3,3 +3,5 @@ tmp/
 node_modules/
 .void/
 views/assets/compiled/
+views/assets/dist/
+
