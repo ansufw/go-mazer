@@ -1,5 +1,11 @@
 ## Go-Mazer
 
+
+
+https://github.com/user-attachments/assets/4cbcd70d-4b8c-4448-82da-a1ac6bf92ff0
+
+
+
 [Mazer](https://github.com/zuramai/mazer) is a Admin Dashboard Template that can help you develop faster. Made with Bootstrap 5. No jQuery dependency.
 
 [Go-Mazer](https://github.com/ansufw/go-mazer) is another version of Mazer that is built using Go (Golang) [Templ](https://github.com/a-h/templ) and [Fiber](https://github.com/gofiber/fiber). 
